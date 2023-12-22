@@ -4,7 +4,7 @@ Hi 👋 My name is Jan Alvin Dimla
 Welcome to my profile.
 ----------------------
 
-I'm still thinking what I can put in here.
+Most of my repositories are in private.
 
 * 🌍  I'm based in Philippines
 * 🖥️  See my portfolio at [Hierarch.io - CRM app](http://hierarch.io/)
