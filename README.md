@@ -1,17 +1,12 @@
-### Hi there 👋
+Hi 👋 My name is Jan Alvin Dimla
+================================
 
-<!--
-**sedna16/sedna16** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Welcome to my profile.
+----------------------
 
-Here are some ideas to get you started:
+I'm still thinking what I can put in here.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
-ss
+*   🌍  I'm based in Philippines
+*   🖥️  See my portfolio at [Hierarch.io - CRM app](http://hierarch.io/)
+*   ✉️  You can contact me at [alvindimla@yahoo.com](mailto:alvindimla@yahoo.com)
+*   🚀  I'm currently working on [Hierarch.io - CRM app](http://(s)://hierarch.io/)
