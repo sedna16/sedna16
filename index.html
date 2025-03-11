@@ -118,45 +118,5 @@
 
     </div>
 
-    <script>
-        const passwordInput = document.getElementById('passwordInput');
-        const hiddenPasswordInput = document.getElementById("hiddenPasswordInput");
-        const commandOutput = document.getElementById('commandOutput');
-        const commandInput = document.getElementById("commandInput");
-        const hiddenCommandInput = document.getElementById("hiddenCommandInput");
-        const commandOutput2 = document.getElementById("commandOutput2");
-
-        passwordInput.addEventListener('input', () => {
-            hiddenPasswordInput.value = passwordInput.textContent;
-            
-        });
-        commandInput.addEventListener('input', () => {
-          hiddenCommandInput.value = commandInput.textContent;
-          
-        });
-
-        //prevent cursor from jumping to the start
-        passwordInput.addEventListener("keydown", (event) => {
-          if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-                return;
-            }
-            if (event.key === 'Enter') {
-              event.preventDefault(); // Prevent the default Enter behavior
-              commandOutput.innerHTML+= `<br> input password: ${hiddenPasswordInput.value}`
-            }
-        });
-        commandInput.addEventListener("keydown", (event) => {
-            if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-                return;
-            }
-            if (event.key === 'Enter') {
-              event.preventDefault();
-              commandOutput2.innerHTML = `command input: ${hiddenCommandInput.value}`;
-              commandInput.textContent = "";
-              hiddenCommandInput.value="";
-            }
-        });
-    </script>
-
 </body>
 </html>
