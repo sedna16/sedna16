@@ -7,7 +7,7 @@
     <style>
         body {
             background-color: #000; /* Black background */
-            color: #0f0; /* Green text */
+            color: #aaa; /* Grey text */
             font-family: 'Courier New', monospace; /* Terminal-like font */
             margin: 0;
             padding: 20px;
@@ -19,33 +19,33 @@
 
         .terminal {
             background-color: #111; /* Darker black for the terminal window */
-            border: 2px solid #0f0; /* Green border */
+            border: 2px solid #aaa; /* Grey border */
             padding: 15px;
             border-radius: 5px;
-            box-shadow: 0 0 10px #0f0; /* Green glow */
+            /* box-shadow: 0 0 10px #0f0;  Removed green glow */
             max-width: 800px;
             margin: 20px auto;
             overflow-x: auto; /* Horizontal scrolling if needed */
         }
 
         .prompt {
-            color: #0f0;
+            color: #aaa; /* Grey prompt */
             display: inline;
         }
         .user-input{
-            color:#0f0;
+            color:#aaa; /* Grey user input */
             display: inline;
         }
 
         .command-output {
-            color: #fff; /* White for command outputs */
+            color: #aaa; /* Grey command outputs */
             display: block;
             margin-top: 5px;
             
         }
 
         .command-error {
-            color: red; /* Red for error messages */
+            color: #faa; /* Light red for error messages */
             display: block;
             margin-top: 5px;
         }
@@ -54,7 +54,7 @@
           display: inline-block;
           width: 8px;
           height: 16px;
-          background-color: #0f0;
+          background-color: #aaa; /*Grey cursor*/
           animation: blink 1s step-end infinite;
           margin-left: 3px;
         }
@@ -67,7 +67,7 @@
 
         /* Styles for links */
         a {
-            color: #0ff; /* Cyan links */
+            color: #ccc; /* light Grey links */
             text-decoration: none; /* Remove underline */
         }
 
