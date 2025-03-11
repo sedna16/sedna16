@@ -6,75 +6,86 @@
     <title>Terminal-Style Page</title>
     <style>
         body {
-            background-color: #000; /* Black background */
-            color: #aaa; /* Grey text */
-            font-family: 'Courier New', monospace; /* Terminal-like font */
+            background-color: #000;
+            color: #aaa;
+            font-family: 'Courier New', monospace;
             margin: 0;
             padding: 20px;
-            overflow-y: auto; /* Enable vertical scrolling if content overflows */
+            overflow-y: auto;
             line-height: 1.4;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
         .terminal {
-            background-color: #111; /* Darker black for the terminal window */
-            border: 2px solid #aaa; /* Grey border */
+            background-color: #111;
+            border: 2px solid #aaa;
             padding: 15px;
             border-radius: 5px;
-            /* box-shadow: 0 0 10px #0f0;  Removed green glow */
             max-width: 800px;
             margin: 20px auto;
-            overflow-x: auto; /* Horizontal scrolling if needed */
+            overflow-x: auto;
         }
 
         .prompt {
-            color: #aaa; /* Grey prompt */
+            color: #aaa;
             display: inline;
         }
-        .user-input{
-            color:#aaa; /* Grey user input */
+
+        .user-input {
+            color: #aaa;
             display: inline;
+            white-space: pre-wrap; /* Allow wrapping of text */
+            word-wrap: break-word; /* Break long words if necessary */
         }
 
         .command-output {
-            color: #aaa; /* Grey command outputs */
+            color: #aaa;
             display: block;
             margin-top: 5px;
-            
         }
 
         .command-error {
-            color: #faa; /* Light red for error messages */
+            color: #faa;
             display: block;
             margin-top: 5px;
         }
-        
+
         .cursor {
-          display: inline-block;
-          width: 8px;
-          height: 16px;
-          background-color: #aaa; /*Grey cursor*/
-          animation: blink 1s step-end infinite;
-          margin-left: 3px;
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background-color: #aaa;
+            animation: blink 1s step-end infinite;
+            margin-left: 3px;
         }
 
         @keyframes blink {
-          50% {
-            opacity: 0;
-          }
+            50% {
+                opacity: 0;
+            }
         }
 
-        /* Styles for links */
         a {
-            color: #ccc; /* light Grey links */
-            text-decoration: none; /* Remove underline */
+            color: #ccc;
+            text-decoration: none;
         }
 
         a:hover {
-            text-decoration: underline; /* Underline on hover */
+            text-decoration: underline;
         }
 
+        .input-container {
+          display: inline; /* Keep prompt and input on the same line */
+        }
+
+        .hidden-input {
+          position: absolute;
+          opacity: 0;
+          width: 0;
+          height: 0;
+          pointer-events: none;
+        }
     </style>
 </head>
 <body>
@@ -83,9 +94,12 @@
 
         <p><span class="prompt">system_login:</span> <span class="user-input">true</span></p>
         <p><span class="prompt">user:</span> <span class="user-input">sedna16</span></p>
-        <p><span class="prompt">pass:</span> <span class="user-input"></span></p>
+        <p class="input-line">
+          <span class="prompt">pass:</span> <span class="user-input" contenteditable="true" id="passwordInput"></span>
+          <input type="text" class="hidden-input" id="hiddenPasswordInput">
+        </p>
 
-        <div class="command-output">
+        <div class="command-output" id="commandOutput">
             fullname: <a href="#">Jan Alvin Dimla</a>
             <br>
             email: <a href="#">alvindimla@yahoo.com</a>
@@ -99,17 +113,52 @@
             -rw-r--r--  1 user  user   2048 Jan  1 00:00 <a href="#">index.html</a>
         </div>
 
-        <p><span class="prompt">user@computer:~$</span> <span class="user-input">cd Projects</span></p>
-        <div class="command-output"></div>
+        <p class="input-line"><span class="prompt">user@computer:~$</span> <span class="user-input" contenteditable="true" id="commandInput"></span><span class="cursor"></span>
+        <input type="text" class="hidden-input" id="hiddenCommandInput">
+        </p>
+        <div class="command-output" id="commandOutput2"></div>
 
-        <p><span class="prompt">user@computer:~/Projects$</span> <span class="user-input">echo "Hello World!"</span></p>
-        <div class="command-output">Hello World!</div>
-        
-        <p><span class="prompt">user@computer:~/Projects$</span> <span class="user-input">rm -rf very_important_folder</span></p>
-        <div class="command-error">rm: cannot remove 'very_important_folder': No such file or directory</div>
-
-        <p><span class="prompt">user@computer:~/Projects$</span> <span class="user-input"></span><span class="cursor"></span></p>
     </div>
+
+    <script>
+        const passwordInput = document.getElementById('passwordInput');
+        const hiddenPasswordInput = document.getElementById("hiddenPasswordInput");
+        const commandOutput = document.getElementById('commandOutput');
+        const commandInput = document.getElementById("commandInput");
+        const hiddenCommandInput = document.getElementById("hiddenCommandInput");
+        const commandOutput2 = document.getElementById("commandOutput2");
+
+        passwordInput.addEventListener('input', () => {
+            hiddenPasswordInput.value = passwordInput.textContent;
+            
+        });
+        commandInput.addEventListener('input', () => {
+          hiddenCommandInput.value = commandInput.textContent;
+          
+        });
+
+        //prevent cursor from jumping to the start
+        passwordInput.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+                return;
+            }
+            if (event.key === 'Enter') {
+              event.preventDefault(); // Prevent the default Enter behavior
+              commandOutput.innerHTML+= `<br> input password: ${hiddenPasswordInput.value}`
+            }
+        });
+        commandInput.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+                return;
+            }
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              commandOutput2.innerHTML = `command input: ${hiddenCommandInput.value}`;
+              commandInput.textContent = "";
+              hiddenCommandInput.value="";
+            }
+        });
+    </script>
 
 </body>
 </html>
