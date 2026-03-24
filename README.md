@@ -6,11 +6,11 @@ Welcome to my profile.
 
 Most of my repositories are in private.
 
-* 🌍  I'm based in Philippines
-* 🖥️  See my portfolio at [Hierarch.io - CRM app](http://hierarch.io/)
+* 🌍  I'm based in Manila, Philippines
+* 🖥️  See my portfolio at [[Hierarch.io - CRM app](https://jan-alvin-dimla-portfolio.onrender.com/)]([http://hierarch.io/](https://jan-alvin-dimla-portfolio.onrender.com/))
 * ✉️  You can contact me at [alvindimla@yahoo.com](mailto:alvindimla@yahoo.com)
-* 🚀  I'm currently working on [Hierarch.io - CRM app](http://hierarch.io/)
-* 🧠  I'm learning Vue, Nextjs
+* 🚀  I'm currently working on multiple projects, lets work together!
+* 🧠  I'm reading several books.
 * ⚡  also a gamer
 
 <a href="https://www.github.com/sedna16" target="_blank" rel="noreferrer"><img
