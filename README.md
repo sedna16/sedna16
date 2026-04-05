@@ -9,7 +9,7 @@ Most of my repositories are in private.
 * 🌍  I'm based in Manila, Philippines
 * 🖥️  See my portfolio at [https://jan-alvin-dimla-portfolio.onrender.com/](https://jan-alvin-dimla-portfolio.onrender.com/)
 * ✉️  You can contact me at [alvindimla@yahoo.com](mailto:alvindimla@yahoo.com)
-* 🚀  I'm currently working on [Meridian Terminal)](https://github.com/sedna16/meridian-terminal)
+* 🚀  I'm currently working on [Meridian Terminal](https://github.com/sedna16/meridian-terminal)
 * 🧠  I'm reading several books.
 * ⚡  also a gamer
 
